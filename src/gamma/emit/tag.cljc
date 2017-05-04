@@ -1,15 +1,14 @@
 (ns gamma.emit.tag
-  (:use [gamma.emit.emit :only [emit]]
-        [gamma.ast :only [head body term]]))
+  (:require
+    [gamma.emit.emit :refer [emit]]
+    [gamma.ast :refer [head body term]]))
 
 ;;;; PROGRAM
-
 
 (defmethod emit :variable [db x]
   (if-let [n (:name x)]
     n
     (str "v" (:id x))))
-
 
 (defmethod emit :shader [db x]
   [:span
@@ -48,8 +47,3 @@
       (if-let [p (:precision v)] (str (name p) " ") "")
       (name (:type v)) " " (emit db v) ";"])
     (catch #?(:cljs js/Error :clj Exception) e (println (str "declaration error on: ") (pr-str x)))))
-
-
-
-
-

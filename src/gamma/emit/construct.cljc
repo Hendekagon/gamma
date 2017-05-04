@@ -1,6 +1,7 @@
 (ns gamma.emit.construct
-  (:use [gamma.emit.emit :only [emit]]
-        [gamma.ast :only [head body term ]]))
+  (:require
+    [gamma.emit.emit :refer [emit]]
+    [gamma.ast :refer [head body term ]]))
 
 (defmethod emit :constructor [db x]
   [:group

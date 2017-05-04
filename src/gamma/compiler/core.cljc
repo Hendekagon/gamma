@@ -1,15 +1,15 @@
 (ns gamma.compiler.core
   (:refer-clojure :exclude [compile])
-  (:use [gamma.compiler.common :only [get-element map-path location-conj]]
-        [gamma.ast :only [id? term]]
-        [gamma.compiler.flatten-ast :only [flatten-ast]]
-        [gamma.compiler.bubble-term :only [bubble-terms]]
-        [gamma.compiler.insert-assignments :only [insert-assignments]]
-        [gamma.compiler.lift-assignments :only [lift-assignments]]
-        [gamma.compiler.separate-usages :only [separate-usages]]
-        [gamma.compiler.insert-variables :only [insert-variables]]
-        [gamma.compiler.move-assignments :only [move-assignments]]
-        ))
+  (:require 
+    [gamma.compiler.common :refer [get-element map-path location-conj]]
+    [gamma.ast :refer [id? term]]
+    [gamma.compiler.flatten-ast :refer [flatten-ast]]
+    [gamma.compiler.bubble-term :refer [bubble-terms]]
+    [gamma.compiler.insert-assignments :refer [insert-assignments]]
+    [gamma.compiler.lift-assignments :refer [lift-assignments]]
+    [gamma.compiler.separate-usages :refer [separate-usages]]
+    [gamma.compiler.insert-variables :refer [insert-variables]]
+    [gamma.compiler.move-assignments :refer [move-assignments]]))
 
 (defn push-ops [db ops location stack]
   (reduce

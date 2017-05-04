@@ -1,7 +1,7 @@
 (ns gamma.compiler.insert-assignments
-  (:use [gamma.ast :only [id? gen-term-id]]
-        [gamma.compiler.common :only [get-element map-path assoc-elements assoc-in-location]]))
-
+  (:require
+    [gamma.ast :refer [id? gen-term-id]]
+    [gamma.compiler.common :refer [get-element map-path assoc-elements assoc-in-location]]))
 
 (defn insert-assignment [db location target-id]
   (let [set-id (gen-term-id) var-id (gen-term-id)

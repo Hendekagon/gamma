@@ -1,27 +1,25 @@
 (ns gamma.tools
-  (:use
-    [gamma.compiler.common :only [get-element map-path location-conj]]
-    [gamma.ast :only [id? term]]
-    [gamma.compiler.flatten-ast :only [flatten-ast]]
-    [gamma.compiler.bubble-term :only [bubble-terms]]
-    [gamma.compiler.insert-assignments :only [insert-assignments]]
-    [gamma.compiler.lift-assignments :only [lift-assignments]]
-    [gamma.compiler.separate-usages :only [separate-usages]]
-    [gamma.compiler.insert-variables :only [insert-variables]]
-    [gamma.compiler.move-assignments :only [move-assignments]]
-    [gamma.compiler.print :only [printer]])
   (:require
     [gamma.compiler.core :refer [transform]]
     [gamma.api :as g]
     [gamma.emit.emit :refer [emit]]
-    gamma.emit.fun
-    gamma.emit.operator
-    gamma.emit.statement
-    gamma.emit.tag
-    gamma.emit.construct
-    clojure.string
-    fipp.engine))
-
+    [gamma.compiler.common :refer [get-element map-path location-conj]]
+    [gamma.ast :refer [id? term]]
+    [gamma.compiler.flatten-ast :refer [flatten-ast]]
+    [gamma.compiler.bubble-term :refer [bubble-terms]]
+    [gamma.compiler.insert-assignments :refer [insert-assignments]]
+    [gamma.compiler.lift-assignments :refer [lift-assignments]]
+    [gamma.compiler.separate-usages :refer [separate-usages]]
+    [gamma.compiler.insert-variables :refer [insert-variables]]
+    [gamma.compiler.move-assignments :refer [move-assignments]]
+    [gamma.compiler.print :refer [printer]]
+    [gamma.emit.fun]
+    [gamma.emit.operator]
+    [gamma.emit.statement]
+    [gamma.emit.tag]
+    [gamma.emit.construct]
+    [clojure.string]
+    [fipp.engine]))
 
 (def stages-map
   {:flatten-ast  flatten-ast

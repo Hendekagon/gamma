@@ -1,6 +1,7 @@
 (ns gamma.emit.statement
-  (:use [gamma.emit.emit :only [emit]]
-        [gamma.ast :only [head body term]]))
+  (:require
+    [gamma.emit.emit :refer [emit]]
+    [gamma.ast :refer [head body term]]))
 
 ;;;; STATEMENTS
 
@@ -55,10 +56,6 @@
      "}"]
     ))
 
-
-
-
-
 (defmethod emit :for [x]
   (let [[init condition increment bod] (body x)]
     (str "for("
@@ -67,9 +64,6 @@
          (emit increment) ";){"
          (emit bod)
          "}")))
-
-
-
 
 (defmethod emit :if-else [x]
   (let [[test then else] (body x)]

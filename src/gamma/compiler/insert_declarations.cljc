@@ -1,8 +1,8 @@
 (ns gamma.compiler.insert-declarations
-  (:use [gamma.ast :only [id? gen-term-id]]
-        [gamma.compiler.common :only [get-element map-path assoc-in-location assoc-elements]]
-        [gamma.compiler.core :only [transform]])
-    )
+  (:require
+    [gamma.ast :refer [id? gen-term-id]]
+    [gamma.compiler.common :refer [get-element map-path assoc-in-location assoc-elements]]
+    [gamma.compiler.core :refer [transform]]))
 
 
 (defn walk [db pre]

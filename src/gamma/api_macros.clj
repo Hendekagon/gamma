@@ -1,7 +1,5 @@
 (ns gamma.api-macros)
 
-(println "api macroz")
-
 (def standard-functions
   (group-by :name
             (map

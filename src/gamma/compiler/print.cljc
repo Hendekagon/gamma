@@ -1,9 +1,7 @@
 (ns gamma.compiler.print
-  (:use [gamma.ast :only [id?]])
   (:require
+    [gamma.ast :refer [id?]]
     [fipp.engine]))
-
-
 
 (defn pretty-nil [trans x]
   [:text "nil"])
@@ -21,7 +19,7 @@
   (let [kvps (for [[k v] m]
                [:span (trans k) " " (trans v)])
         doc [:group "{" [:align (interpose [:span "," :line] kvps)]  "}"]]
-    (if (implements? IRecord m)
+    (if (record? m)
       [:span "#"
        (str (type m))
        doc]
@@ -44,8 +42,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (deftype Dispatcher [dispatch-fn]
-  IFn
-  (-invoke [this x] ((dispatch-fn x) this x)))
+  #?(:clj clojure.lang.IFn :cljs cljs.core/IFn)
+  (#?(:clj invoke :cljs -invoke) [this x] ((dispatch-fn x) this x)))
 
 (defn printer []
   (Dispatcher.

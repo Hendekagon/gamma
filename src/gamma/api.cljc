@@ -1,33 +1,31 @@
 (ns gamma.api
   (:refer-clojure
-  :exclude [aget
-            not
-            not=
-            or
-            set
-            /
-            *
-            +
-            -
-            <
-            >
-            <=
-            >=
-            ==
-            max
-            min
-            mod
-            and
-            if
-            for
-            int
-            float])
+    :exclude [aget
+              not
+              not=
+              or
+              set
+              /
+              *
+              +
+              -
+              <
+              >
+              <=
+              >=
+              ==
+              max
+              min
+              mod
+              and
+              if
+              for
+              int
+              float])
   (:require
     [gamma.ast :as ast]
-    #?(:clj [gamma.api-macros :as api-macro]))
-  #?(:cljs (:require-macros [gamma.api-macros :as api-macro])))
-
-(println "api")
+    #?(:clj [gamma.api-macros :as gm]))
+  #?(:cljs (:require-macros [gamma.api-macros :as gm])))
 
 (defn error [m] #?(:cljs (js/Error. m) :clj (Exception. m)))
 
@@ -87,7 +85,8 @@
   (let [t (into #{} (map :type [a b]))]
     (if (= 1 (count t))
       (#{:float :int :vec2 :vec3 :vec4 :ivec2 :ivec3 :ivec4}
-        (first t)))))
+        (first t))
+        :arithmetic-type-error)))
 
 
 (defn + [a b]
@@ -242,7 +241,7 @@
                                 ": " (interpose " ," (map :type (:body t))))))
       )))
 
-(api-macro/gen-fns)
+(gm/gen-fns)
 
 (defn swizzle-type [x c]
   (let [swizzle-length (count (name c))

@@ -1,10 +1,10 @@
 (ns gamma.emit.fun
-  (:use [gamma.emit.emit :only [emit]]
-        [gamma.ast :only [head body term ]]))
+  (:require
+    [gamma.emit.emit :refer [emit]]
+    [gamma.ast :refer [head body term ]]))
 
 
 ;;;; FUNCTIONS
-
 
 
 (defmethod emit :function [db x]

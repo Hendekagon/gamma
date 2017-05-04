@@ -1,7 +1,7 @@
 (ns gamma.emit.operator
-  (:use [gamma.emit.emit :only [emit]]
-        [gamma.ast :only [head body term]]))
-
+  (:require
+    [gamma.emit.emit :refer [emit]]
+    [gamma.ast :refer [head body term]]))
 
 ;;; OPERATOR CASES
 
@@ -29,7 +29,6 @@
    ")"])
 
 (defmethod emit :conditional-choice [db x])
-
 
 (defmethod emit :aget [db x]
   [:group (emit db (db (first (body x)))) "[" (emit db (db (second (body x)))) "]"])

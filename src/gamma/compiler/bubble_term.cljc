@@ -1,6 +1,5 @@
 (ns gamma.compiler.bubble-term
-  (:use [gamma.ast :only [id?]]))
-
+  (:require [gamma.ast :refer [id?]]))
 
 (defn parent-bubbles [db bubble]
   (map

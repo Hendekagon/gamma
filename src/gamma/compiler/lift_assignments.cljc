@@ -1,8 +1,7 @@
 (ns gamma.compiler.lift-assignments
-  (:use [gamma.ast :only [id? gen-term-id]]
-        [gamma.compiler.common :only [get-element map-path]])
-  )
-
+  (:require
+    [gamma.ast :refer [id? gen-term-id]]
+    [gamma.compiler.common :refer [get-element map-path]]))
 
 (defn liftable? [db location]
   (let [e (get-element db location)]

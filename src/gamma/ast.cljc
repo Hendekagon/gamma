@@ -1,6 +1,5 @@
 (ns gamma.ast)
 
-
 ;(defrecord Term [head body id])
 
 (defn error [m] #?(:cljs (js/Error. m) :clj (Exception. m)))
@@ -40,7 +39,6 @@
      :id (gen-term-id)}))
 
 (defn term [h & args]
-(println "term:" h args)
   {:tag :term
    :head h
    :body (map #(if (term? %) % (literal %)) args)
@@ -200,7 +198,6 @@
       [:vec4 :textureCube [:samplerCube :sampler :vec3 :coord]]
       ])))
 
-
 (def matrix-functions
   (map
     (fn [x]
@@ -225,8 +222,6 @@
      [:bool :any [:bvec :x]]
      [:bool :all [:bvec :x]]
      [:bvec :notv [:bvec :x]]]))
-
-
 
 (def functions
   (into #{}

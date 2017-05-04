@@ -1,6 +1,5 @@
 (ns gamma.emit.emit
-  (:use [gamma.ast :only [term  head body]]))
-
+  (:require [gamma.ast :refer [term  head body]]))
 
 (defn function? [x]
   (gamma.ast/functions (head x)))
@@ -31,7 +30,6 @@
            (if-let [h (head x)]
              h
              (:tag x))))))))
-
 
 (defmulti emit emit-dispatch)
 

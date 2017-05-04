@@ -1,7 +1,7 @@
 (ns gamma.compiler.move-assignments
-  (:use [gamma.ast :only [id? gen-term-id]]
-        [gamma.compiler.common :only [get-element map-path assoc-elements assoc-in-location]])
-  )
+  (:require
+    [gamma.ast :refer [id? gen-term-id]]
+    [gamma.compiler.common :refer [get-element map-path assoc-elements assoc-in-location]]))
 
 
 ;; move assignments into the body of blocks

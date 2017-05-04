@@ -1,9 +1,8 @@
 (ns gamma.compiler.separate-usages
-
-  (:require [clojure.set :refer [difference union intersection]])
-  (:use [gamma.ast :only [id? gen-term-id]]
-        [gamma.compiler.common :only [merge-elements location-conj get-element map-path assoc-in-parent assoc-elements]])
-  )
+  (:require
+    [clojure.set :refer [difference union intersection]]
+    [gamma.ast :refer [id? gen-term-id]]
+    [gamma.compiler.common :refer [merge-elements location-conj get-element map-path assoc-in-parent assoc-elements]]))
 
 
 ;;;;;;

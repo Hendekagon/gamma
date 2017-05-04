@@ -1,5 +1,5 @@
 (ns gamma.compiler.common
-  (:use [gamma.ast :only [id? term]]))
+  (:require [gamma.ast :refer [id? term]]))
 
 (defn get-element [db location]
    (get-in (db (:id location)) (:path location)))
