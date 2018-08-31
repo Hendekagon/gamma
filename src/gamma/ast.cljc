@@ -40,7 +40,7 @@
      :id (gen-term-id)}))
 
 (defn term [h & args]
-(println "term:" h args)
+  ;(println "term:" h args)
   {:tag :term
    :head h
    :body (map #(if (term? %) % (literal %)) args)
