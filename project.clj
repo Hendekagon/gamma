@@ -1,4 +1,4 @@
-(defproject org.clojars.hendekagon/gamma "auto"
+(defproject org.clojars.hendekagon/gamma "0.0.2"
   :description "glsl shaders made simple"
   :url "https://github.com/kovasb/gamma"
   :license {:name "Eclipse Public License"

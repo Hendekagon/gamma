@@ -1,0 +1,9 @@
+{
+ :paths ["src/cljc" "src/cljs"]
+ :deps
+        {
+          org.clojure/clojure                    {:mvn/version "1.10.1"}
+          org.clojure/clojurescript              {:mvn/version "1.10.597"}
+          fipp {:mvn/version "0.6.7"}
+         }
+ }

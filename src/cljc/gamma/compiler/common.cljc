@@ -24,8 +24,6 @@
         pid (:id p)]
     (assoc db pid (assoc-in (db pid) (:path p) value))))
 
-
-
 (defn location-conj [db location key]
   (let [base-location (update-in location [:path] conj key)
         elt (get-element db base-location)]
